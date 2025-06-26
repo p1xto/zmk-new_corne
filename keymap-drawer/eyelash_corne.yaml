@@ -35,7 +35,7 @@ layers:
   - C
   - V
   - B
-  - {t: NUMBER, h: toggle}
+  - '&new_behavior'
   - $$mdi:arrow-down-bold$$
   - N
   - M
