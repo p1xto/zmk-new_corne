@@ -4,6 +4,7 @@
 #include <input/processors.dtsi>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
@@ -31,7 +32,7 @@
             compatible = "zmk,behavior-tap-dance";
             display-name = "Shift/Caps Lock Tap Dance";
             #binding-cells = <0>;
-            bindings = <&kp LEFT_SHIFT>, <&kp CAPS>;
+            bindings = <&kp TAB>, <&kp CAPS>;
         };
 
         new_behavior: new_behavior {
@@ -62,10 +63,10 @@
         default_layer {
             display-name = "QWERTY";
             bindings = <
-&kp ESC       &kp Q  &kp W  &kp E     &kp R             &kp T                          &kp UP                &kp Y        &kp U            &kp I          &kp O    &kp P     &kp BSPC
-&td0          &kp A  &kp S  &kp D     &lt 2 F           &kp G                &kp LEFT  &kp ENTER  &kp RIGHT  &kp H        &kp J            &kp K          &kp L    &kp SEMI  &kp SQT
-&kp LEFT_ALT  &kp Z  &kp X  &kp C     &kp V             &kp B  &kp K_MUTE              &kp DOWN              &kp N        &kp M            &kp COMMA      &kp DOT  &kp FSLH  &kp ENTER
-                            &kp LGUI  &kp LEFT_CONTROL  &mo 1                                                &lt 3 SPACE  &kp RIGHT_SHIFT  &kp RIGHT_ALT
+&kp ESC         &kp Q  &kp W  &kp E     &kp R             &kp T                          &kp UP                &kp Y              &kp U      &kp I          &kp O    &kp P     &kp BSPC
+&td0            &kp A  &kp S  &kp D     &lt 2 F           &kp G                &kp LEFT  &kp ENTER  &kp RIGHT  &kp H              &kp J      &kp K          &kp L    &kp SEMI  &kp ENTER
+&kp LEFT_SHIFT  &kp Z  &kp X  &kp C     &kp V             &kp B  &kp K_MUTE              &kp DOWN              &kp N              &kp M      &kp COMMA      &kp DOT  &kp FSLH  &kp SQT
+                              &kp LGUI  &kp LEFT_CONTROL  &mo 1                                                &lt 3 RIGHT_SHIFT  &kp SPACE  &kp RIGHT_ALT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
@@ -74,10 +75,10 @@
         lower_layer {
             display-name = "NUMBER";
             bindings = <
-&trans  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5                                         &mmv MOVE_UP                     &kp N6           &kp N7           &kp N8           &kp N9           &kp N0    &kp BSPC
-&trans  &trans  &trans  &trans  &trans  &trans                         &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp LEFT         &kp DOWN         &kp UP           &kp RIGHT        &kp HOME  &kp PG_UP
-&trans  &trans  &trans  &trans  &trans  &rgb_ug RGB_EFF  &kp C_MUTE                    &mmv MOVE_DOWN                   &rgb_ug RGB_EFR  &rgb_ug RGB_SPI  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &kp END   &kp PG_DN
-                        &trans  &trans  &trans                                                                          &kp INS          &kp DEL          &trans
+&trans  &kp N1        &kp N2        &kp N3        &kp N4        &kp N5                                         &mmv MOVE_UP                     &kp N6           &kp N7           &kp N8           &kp N9           &kp N0    &kp BSPC
+&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                   &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp LEFT         &kp DOWN         &kp UP           &kp RIGHT        &kp HOME  &kp PG_UP
+&trans  &trans        &trans        &trans        &trans        &rgb_ug RGB_EFF  &kp C_MUTE                    &mmv MOVE_DOWN                   &rgb_ug RGB_EFR  &rgb_ug RGB_SPI  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &kp END   &kp PG_DN
+                                    &trans        &trans        &trans                                                                          &kp INS          &kp DEL          &trans
             >;
 
             sensor-bindings = <&scroll_encoder>;
@@ -86,9 +87,9 @@
         raise_layer {
             display-name = "SYMBOL";
             bindings = <
-&trans  &kp EXCL      &kp AT        &kp HASH   &kp DLLR   &kp PRCNT                            &mmv MOVE_UP                     &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp BSPC
-&trans  &trans        &mkp LCLK     &mkp MCLK  &mkp RCLK  &mkp MB4             &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT  &kp BSLH  &kp GRAVE
-&trans  &out OUT_USB  &out OUT_BLE  &none      &none      &mkp MB5   &trans                    &mmv MOVE_DOWN                   &kp UNDER  &kp PLUS   &kp LBRC   &kp RBRC  &kp PIPE  &kp TILDE
+&trans  &kp EXCL      &kp AT        &kp HASH   &kp DLLR   &kp PRCNT                            &mmv MOVE_UP                     &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR          &kp RPAR           &kp BSPC
+&trans  &trans        &mkp LCLK     &mkp MCLK  &mkp RCLK  &mkp MB4             &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp MINUS  &kp UNDER  &kp EQUAL  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp GRAVE
+&trans  &out OUT_USB  &out OUT_BLE  &none      &none      &mkp MB5   &trans                    &mmv MOVE_DOWN                   &kp UNDER  &kp PLUS   &kp LBRC   &kp RBRC          &kp PIPE           &kp TILDE
                                     &trans     &trans     &kp SPACE                                                             &kp RET    &trans     &trans
             >;
 
