@@ -201,3 +201,5 @@ combos:
   k: Fn
 - p: [17, 44]
   k: SYMBOL
+- p: [29, 30]
+  k: $$mdi:backspace-reverse-outline$$
