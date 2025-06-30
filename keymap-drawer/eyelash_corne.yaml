@@ -46,7 +46,7 @@ layers:
   - LGUI
   - $$mdi:apple-keyboard-control$$
   - NUMBER
-  - {t: '$$mdi:apple-keyboard-shift$$', h: toggle}
+  - $$mdi:apple-keyboard-shift$$
   - $$mdi:keyboard-space$$
   - $$mdi:apple-keyboard-option$$
   NUMBER:
