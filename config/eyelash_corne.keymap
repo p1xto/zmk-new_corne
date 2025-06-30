@@ -69,6 +69,11 @@
             bindings = <&mo 2>;
             key-positions = <17 44>;
         };
+
+        delete {
+            bindings = <&kp DELETE>;
+            key-positions = <29 30>;
+        };
     };
 
     keymap {
