@@ -57,16 +57,25 @@
         tap-ms = <100>;
     };
 
+    combos {
+        compatible = "zmk,combos";
+
+        layer {
+            bindings = <&mo 3>;
+            key-positions = <45 23>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             display-name = "QWERTY";
             bindings = <
-&kp ESC         &kp Q  &kp W  &kp E     &kp R             &kp T                          &kp UP                &kp Y              &kp U      &kp I          &kp O    &kp P     &kp BSPC
-&td0            &kp A  &kp S  &kp D     &lt 2 F           &kp G                &kp LEFT  &kp ENTER  &kp RIGHT  &kp H              &kp J      &kp K          &kp L    &kp SEMI  &kp ENTER
-&kp LEFT_SHIFT  &kp Z  &kp X  &kp C     &kp V             &kp B  &kp K_MUTE              &kp DOWN              &kp N              &kp M      &kp COMMA      &kp DOT  &kp FSLH  &kp SQT
-                              &kp LGUI  &kp LEFT_CONTROL  &mo 1                                                &lt 3 RIGHT_SHIFT  &kp SPACE  &kp RIGHT_ALT
+&kp ESC         &kp Q  &kp W  &kp E     &kp R             &kp T                          &kp UP                &kp Y            &kp U      &kp I          &kp O    &kp P     &kp BSPC
+&td0            &kp A  &kp S  &kp D     &lt 2 F           &kp G                &kp LEFT  &kp ENTER  &kp RIGHT  &kp H            &kp J      &kp K          &kp L    &kp SEMI  &kp ENTER
+&kp LEFT_SHIFT  &kp Z  &kp X  &kp C     &kp V             &kp B  &kp K_MUTE              &kp DOWN              &kp N            &kp M      &kp COMMA      &kp DOT  &kp FSLH  &kp SQT
+                              &kp LGUI  &kp LEFT_CONTROL  &mo 1                                                &kt RIGHT_SHIFT  &kp SPACE  &kp RIGHT_ALT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
@@ -99,10 +108,10 @@
         layer_3 {
             display-name = "Fn";
             bindings = <
-&kp LA(TAB)  &kp F1      &kp F2         &kp F3       &kp F4     &kp F5                                  &mmv MOVE_UP                     &kp F6       &kp F7     &kp F8       &kp F9      &kp F10          &kp F11
-&trans       &trans      &kp LG(LS(S))  &mkp MCLK    &mkp RCLK  &mkp MB4                &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &bootloader  &mkp LCLK  &mkp MCLK    &mkp RCLK   &kp PRINTSCREEN  &kp F12
-&trans       &sys_reset  &trans         &bootloader  &trans     &mkp MB5  &kp C_MUTE                    &mmv MOVE_DOWN                   &trans       &trans     &bootloader  &sys_reset  &kp SCROLLLOCK   &kp PAUSE_BREAK
-                                        &trans       &trans     &trans                                                                   &trans       &trans     &trans
+&kp F1  &kp F2      &kp F3         &kp F4       &kp F5     &kp F6                                  &mmv MOVE_UP                     &kp F7       &kp F8     &kp F9       &kp F10     &kp F11          &kp F12
+&trans  &trans      &kp LG(LS(S))  &mkp MCLK    &mkp RCLK  &mkp MB4                &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &bootloader  &mkp LCLK  &mkp MCLK    &mkp RCLK   &kp PRINTSCREEN  &kp F12
+&trans  &sys_reset  &trans         &bootloader  &trans     &mkp MB5  &kp C_MUTE                    &mmv MOVE_DOWN                   &trans       &trans     &bootloader  &sys_reset  &kp SCROLLLOCK   &kp PAUSE_BREAK
+                                   &trans       &trans     &trans                                                                   &trans       &trans     &trans
             >;
 
             sensor-bindings = <&scroll_encoder>;
